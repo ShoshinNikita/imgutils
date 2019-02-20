@@ -21,6 +21,10 @@ func maxInt(a, b int) int {
 	return b
 }
 
+// Crop is a wrapper over imaging.Crop
+//
+// "Crop cuts out a rectangular region with the specified bounds
+// from the image and returns the cropped image."
 func Crop(img image.Image, min, max image.Point) image.Image {
 	return imaging.Crop(img, image.Rectangle{
 		Min: min,
@@ -28,6 +32,7 @@ func Crop(img image.Image, min, max image.Point) image.Image {
 	})
 }
 
+// Concatenate concatenates 2 images vertically or horizontally
 func Concatenate(img1, img2 image.Image, mode ConcatMode) image.Image {
 	if mode == ConcatVerticalMode {
 		return concatenateVert(img1, img2)
